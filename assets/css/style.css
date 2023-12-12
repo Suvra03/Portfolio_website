@@ -19,6 +19,81 @@ body::before {
   z-index: -1;
 }
 
+.animated-text{
+  font-size: 32px;
+  font-weight: 600;
+  min-width: 280px;
+  padding-top: 5px;
+  padding-left: 4px;
+}
+
+.animated-text span{
+  position: relative;
+}
+
+div span {
+  font-weight: 600;
+  padding-left: 4px;
+}
+
+.animated-text span::before{
+  content: "Youtuber";
+  color: red;
+  animation: words 20s infinite;
+}
+
+.animated-text span::after{
+  content: "";
+  position: absolute;
+  width: calc(100% + 8px);
+  height: 42px;
+  background:  url("../img/blend.png");
+  border-left: 2px solid red;
+  right: -8px;
+  animation: cursor .8s infinite, typing 20s steps(14) infinite;
+}
+
+@keyframes cursor {
+  to{
+      border-left: 2px solid #ff7f5000;
+  }
+}
+
+@keyframes words {
+  0%,20%{
+      content: "UI/UX Developer.";
+  }
+  21%,40%{
+      content: "Web Developer.";
+  }
+  41%,60%{
+      content: "App Developer.";
+  }
+  61%,80%{
+      content: "Web Designer.";
+  }
+  81%,100%{
+      content: "Freelancer.";
+  }
+}
+
+@keyframes typing {
+  10%,15%,30%,35%,50%,55%,70%,75%,90%,95%{
+      width: 0;
+  }
+  5%,20%,25%,40%,45%,60%,65%,80%,85%{
+      width: calc(100% + 8px);
+  }
+}
+
+
+
+
+
+
+
+
+
 @media (min-width: 1024px) {
   body::before {
     background-attachment: fixed;
@@ -968,10 +1043,6 @@ div.special-container p {
 }
 
 
-.card:hover {
-  transform: scale(1.05);
-  transition: transform 0.3s;
-}
 
 
 
@@ -1029,3 +1100,5 @@ div.special-container p {
 .overlay:hover .text {
   opacity: 1;
 }
+
+
